@@ -5,7 +5,7 @@ Learn ansible
 Generate an SSH key pair. (It requires no passphrase)
 
 ```powershell
-ssh-keygen -t ed25519 -f ".\ssh-data\id_ed25519" -N '""' -C "Control Node"
+ssh-keygen -t ed25519 -f ".\ssh\id_ed25519" -N '""' -C "Control Node"
 ```
 
 Build and run containers.

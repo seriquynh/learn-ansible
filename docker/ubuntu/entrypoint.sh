@@ -44,8 +44,8 @@ if [ ! -f /home/"$SSH_USERNAME"/.ssh/authorized_keys ]; then
     touch /home/"$SSH_USERNAME"/.ssh/authorized_keys
 fi
 
-if [ -f /ssh-data/id_ed25519.pub ]; then
-    cat /ssh-data/id_ed25519.pub >> /home/"$SSH_USERNAME"/.ssh/authorized_keys
+if [ -f /ssh/id_ed25519.pub ]; then
+    cat /ssh/id_ed25519.pub >> /home/"$SSH_USERNAME"/.ssh/authorized_keys
 fi
 
 if [ $# -eq 0 ]; then

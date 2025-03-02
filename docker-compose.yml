@@ -6,7 +6,7 @@ services:
       context: docker/control
     volumes:
       - ./ansible:/ansible
-      - ./ssh-data:/ssh-data
+      - ./ssh:/ssh
     working_dir: /ansible
     hostname: console-node
     networks:
@@ -16,7 +16,7 @@ services:
     build:
       context: docker/ubuntu
     volumes:
-      - ./ssh-data:/ssh-data
+      - ./ssh:/ssh
     environment:
       SSH_USERNAME: 'vagrant'
       SSH_PASSWORD: 'vagrant'
@@ -28,7 +28,7 @@ services:
     build:
       context: docker/ubuntu
     volumes:
-      - ./ssh-data:/ssh-data
+      - ./ssh:/ssh
     environment:
       SSH_USERNAME: 'vagrant'
       SSH_PASSWORD: 'vagrant'
@@ -40,7 +40,7 @@ services:
     build:
       context: docker/ubuntu
     volumes:
-      - ./ssh-data:/ssh-data
+      - ./ssh:/ssh
     environment:
       SSH_USERNAME: 'vagrant'
       SSH_PASSWORD: 'vagrant'
