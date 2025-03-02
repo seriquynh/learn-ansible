@@ -4,23 +4,47 @@ services:
   control:
     build:
       context: docker/control
-    image: seriquynh/learn-ansible-control
     volumes:
+      - ./ansible:/ansible
       - ./ssh-data:/ssh-data
+    working_dir: /ansible
     hostname: console-node
     networks:
       - net
 
-  ubuntu:
+  ubuntu-1:
     build:
       context: docker/ubuntu
-    image: seriquynh/learn-ansible-ubuntu
     volumes:
       - ./ssh-data:/ssh-data
     environment:
       SSH_USERNAME: 'vagrant'
       SSH_PASSWORD: 'vagrant'
     hostname: ubuntu-1
+    networks:
+      - net
+
+  ubuntu-2:
+    build:
+      context: docker/ubuntu
+    volumes:
+      - ./ssh-data:/ssh-data
+    environment:
+      SSH_USERNAME: 'vagrant'
+      SSH_PASSWORD: 'vagrant'
+    hostname: ubuntu-2
+    networks:
+      - net
+
+  ubuntu-3:
+    build:
+      context: docker/ubuntu
+    volumes:
+      - ./ssh-data:/ssh-data
+    environment:
+      SSH_USERNAME: 'vagrant'
+      SSH_PASSWORD: 'vagrant'
+    hostname: ubuntu-3
     networks:
       - net
 
