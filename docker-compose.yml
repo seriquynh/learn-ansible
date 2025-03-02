@@ -1,0 +1,29 @@
+name: 'learn-ansible'
+
+services:
+  control:
+    build:
+      context: docker/control
+    image: seriquynh/learn-ansible-control
+    volumes:
+      - ./ssh-data:/ssh-data
+    hostname: console-node
+    networks:
+      - net
+
+  ubuntu:
+    build:
+      context: docker/ubuntu
+    image: seriquynh/learn-ansible-ubuntu
+    volumes:
+      - ./ssh-data:/ssh-data
+    environment:
+      SSH_USERNAME: 'vagrant'
+      SSH_PASSWORD: 'vagrant'
+    hostname: ubuntu-1
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge

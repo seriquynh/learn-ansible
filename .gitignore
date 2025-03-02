@@ -1,0 +1,6 @@
+.idea/
+
+ssh-data/id_ed25519
+ssh-data/id_ed25519.pub
+
+.env

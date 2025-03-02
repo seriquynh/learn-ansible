@@ -1,0 +1,4 @@
+Host *
+    StrictHostKeyChecking no
+    User vagrant
+    IdentityFile ~/.ssh/id_ed25519
