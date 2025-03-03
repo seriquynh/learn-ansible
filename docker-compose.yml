@@ -8,7 +8,7 @@ services:
       - ./ansible:/ansible
       - ./ssh:/ssh
     working_dir: /ansible
-    hostname: console-node
+    hostname: control
     networks:
       - net
 
