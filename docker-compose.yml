@@ -1,5 +1,17 @@
 name: 'learn-ansible'
 
+x-ubuntu: &ubuntu
+  build:
+    context: docker/ubuntu
+  volumes:
+    - ./ssh:/ssh
+  environment:
+    SSH_USERNAME: 'vagrant'
+    SSH_PASSWORD: 'vagrant'
+  hostname: ubuntu
+  networks:
+    - net
+
 services:
   control:
     build:
@@ -13,40 +25,16 @@ services:
       - net
 
   ubuntu-1:
-    build:
-      context: docker/ubuntu
-    volumes:
-      - ./ssh:/ssh
-    environment:
-      SSH_USERNAME: 'vagrant'
-      SSH_PASSWORD: 'vagrant'
+    <<: *ubuntu
     hostname: ubuntu-1
-    networks:
-      - net
 
   ubuntu-2:
-    build:
-      context: docker/ubuntu
-    volumes:
-      - ./ssh:/ssh
-    environment:
-      SSH_USERNAME: 'vagrant'
-      SSH_PASSWORD: 'vagrant'
+    <<: *ubuntu
     hostname: ubuntu-2
-    networks:
-      - net
 
   ubuntu-3:
-    build:
-      context: docker/ubuntu
-    volumes:
-      - ./ssh:/ssh
-    environment:
-      SSH_USERNAME: 'vagrant'
-      SSH_PASSWORD: 'vagrant'
+    <<: *ubuntu
     hostname: ubuntu-3
-    networks:
-      - net
 
 networks:
   net:
