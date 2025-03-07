@@ -25,10 +25,14 @@ docker compose exec -it control bash
 E.g. ping all servers.
 
 ```bash
-ansible all -i hosts -m ping
+ansible -i hosts -m ping all
 ```
 
-Modify `ansible` directory however you want, then try out ansible commands.
+Run some playbooks.
+
+```bash
+ansible-playbook -i hosts --become install_apache.yml
+```
 
 ## References
 - https://github.com/aoudiamoncef/ubuntu-sshd
